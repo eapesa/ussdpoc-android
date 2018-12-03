@@ -40,10 +40,15 @@ public class UssdActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        if (requestCode == REQUEST_CODE_PERMISSION) {
+        int permissionCallPhone = ContextCompat.checkSelfPermission(this,Manifest.permission.CALL_PHONE);
+       
+        if (permissionCallPhone == PackageManager.PERMISSION_GRANTED) {
             Log.d(TAG, "CALL_PHONE permission granted");
-        }
+        }else{
+            Log.d(TAG, "CALL_PHONE permission NOT granted);
     }
+                 
+        }
 
     @Override
     public void onClick(View view) {
